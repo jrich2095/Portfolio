@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jesse Richardson - UX Design Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --bg-color: #f5f7fa;
+        --card-bg: #ffffff;
+        --text-main: #333333;
+        --text-muted: #4b5563;
+
+        --accent-primary: #64748b;   /* slate */
+        --accent-secondary: #94a3b8; /* light slate */
+        --accent-surface: #e5e7eb;
+
+        --border-width: 3px;
+        --border-color: #111827;
+        --hard-shadow: 3px 3px 0px #111827;
+        --border-radius: 4px;
+    }
+
+    body {
+        font-family: 'Public Sans', sans-serif;
+        color: var(--text-main);
+        background-color: var(--bg-color);
+        background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+        background-size: 24px 24px;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* --- Navigation Bar --- */
+    .navbar {
+        position: sticky;
+        top: 20px;
+        background-color: #5A9CB5;
+        border: var(--border-width) solid var(--border-color);
+        box-shadow: var(--hard-shadow);
+        padding: 1rem 0;
+        z-index: 1000;
+        text-align: center;
+        margin: 20px auto;
+        max-width: 90%;
+        border-radius: var(--border-radius);
+        color: var(--text-main);
+    }
+
+    .navbar-nav {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .nav-link {
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: 900;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        padding: 8px 16px;
+        background-color: var(--accent-blue);
+        border: 2px solid var(--border-color);
+        border-radius: 4px;
+        box-shadow: 3px 3px 0px #000;
+        transition: all 0.2s ease;
+    }
+
+    .nav-link:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 1px 1px 0px #000;
+        background-color: var(--accent-purple);
+        color: white;
+    }
+
+    /* --- Sections --- */
+    .section {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 40px;
+        font-weight: 900;
+        text-transform: uppercase;
+        background-color: var(--text-main);
+        color: #ffffff;
+        padding: 10px 20px;
+        border: 3px solid var(--border-color);
+        box-shadow: 6px 6px 0px var(--accent-charcoal);
+        transform: none;
+    }
+
+    .title-wrapper {
+        text-align: center;
+    }
+
+    .section-subtitle {
+        text-align: center;
+        font-size: 1.8rem;
+        margin-top: 50px;
+        margin-bottom: 30px;
+        color: var(--text-main);
+        font-weight: 800;
+        text-decoration: underline;
+        text-decoration-thickness: 3px;
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+        text-align: center;
+        padding: 10px 0 40px;
+        background-color: var(--bg-color);
+        border-bottom: var(--border-width) solid var(--border-color);
+    }
+
+    .hero-photo {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+        border: 4px solid var(--border-color);
+        background-color: #fff;
+        box-shadow: var(--hard-shadow);
+        transition: transform 0.2s;
+    }
+
+    .hero-photo:hover {
+        transform: scale(1.05) rotate(5deg);
+    }
+
+    .hero h1 {
+        font-size: 4rem;
+        margin: 0;
+        font-weight: 900;
+        letter-spacing: -2px;
+        line-height: 1;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--text-main);
+        margin-top: 10px;
+        background-color: var(--accent-green);
+        display: inline-block;
+        padding: 5px 10px;
+        border: 2px solid #000;
+    }
+
+    .hero-layout {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .hero-left {
+        flex: 1;
+        text-align: left;
+    }
+
+    .hero-right {
+        flex: 1;
+    }
+
+    .hero-left h1 {
+        margin-bottom: 10px;
+    }
+
+    .hero-left p {
+        margin-top: 0;
+    }
+
+    @media (max-width: 768px) {
+        .hero-layout {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .hero-left {
+            text-align: center;
+        }
+    }
+
+    /* --- About Section --- */
+    .about-section {
+        background-color: var(--card-bg);
+        padding: 40px;
+        border: var(--border-width) solid var(--border-color);
+        box-shadow: var(--hard-shadow);
+        margin-top: 40px;
+        border-radius: var(--border-radius);
+        position: relative;
+    }
+
+    .about-section h3 {
+        font-size: 1.5rem;
+        margin-top: 0;
+        text-transform: uppercase;
+        font-weight: 900;
+    }
+
+    /* --- Unified Card Layout --- */
+    .card-grid {
+        display: grid;
+        gap: 30px;
+    }
+
+    .card {
+        background-color: var(--card-bg);
+        border: var(--border-width) solid var(--border-color);
+        box-shadow: var(--hard-shadow);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .card.active {
+        align-items: flex-start;
+        margin-bottom: 40px;
+    }
+
+    .card-header {
+        width: 100px;
+        height: 100px;
+        margin: 20px;
+        border: 3px solid #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .card-content {
+        padding: 20px;
+        flex: 1;
+    }
+
+    .card-details {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        background: #f9f9f9;
+    }
+
+    .card.active .card-details {
+        max-height: 3000px;
+        padding: 20px;
+        border-top: 3px solid #000;
+    }
+
+    /* --- Photo Carousel --- */
+    .photo-carousel {
+        position: relative;
+        width: 100%;
+        max-width: 700px;
+        margin: 30px auto;
+        overflow: hidden;
+        border: 3px solid #000;
+        box-shadow: var(--hard-shadow);
+        background: #fff;
+    }
+
+    .carousel-track {
+        display: flex;
+        transition: transform 0.4s ease;
+    }
+
+    .carousel-slide {
+        flex: 0 0 33.3333%;
+        height: 260px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border: 2px solid #000;
+        background: #fff;
+    }
+
+    .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #fff;
+        border: 3px solid #000;
+        font-weight: 900;
+        padding: 6px 12px;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .carousel-btn.prev { left: 10px; }
+    .carousel-btn.next { right: 10px; }
+
+    .carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .carousel-dot {
+        width: 10px;
+        height: 10px;
+        border: 2px solid #000;
+        cursor: pointer;
+    }
+
+    .carousel-dot.active {
+        background: #000;
+    }
+    @media (max-width: 768px) {
+        .carousel-slide {
+            flex: 0 0 100%;
+        }
+    hr {
+        border: 0;
+        border-top: 4px solid #000;
+        margin: 0;
+    }
+
+    footer {
+        text-align: center;
+        padding: 40px;
+        background-color: var(--text-main);
+        color: white;
+        font-weight: 700;
+    }
+</style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+            <li class="nav-item"><a href="#notable-experiences" class="nav-link">Experience</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+    
+<header class="hero">
+    <div class="container hero-layout">
+
+        <!-- LEFT COLUMN -->
+        <div class="hero-left">
+            <img src="file:///Users/jesserichardson/Documents/Portfolio/images/headshot_no_bg.png" 
+                 alt="Jesse Richardson profile photo" 
+                 class="hero-photo">
+            <h1>JESSE<br>RICHARDSON</h1>
+            <p>UX Research & Design</p>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="hero-right">
+            <div class="about-section">
+                <h3>My Motivation</h3>
+                <p>
+                    Throughout my career, I have consistently demonstrated a user-centric approach, focusing on identifying business needs and translating them into actionable strategies. In my current role at Meta, I play a key role in scaling product offerings by overseeing research projects within an emerging category. I am confident that I can bring the same level of dedication and expertise to any challenge within a targeted role.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</header>
+
+
+    <hr>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="title-wrapper"><h2 class="section-title">Projects</h2></div>
+            <div class="card-grid">
+                
+                <div class="card">
+                    <div class="card-header">
+                        <img src="/Users/jesserichardson/Documents/Portfolio/images/waredrobe.jpg" alt="Wishlist Wardrobe Logo" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3>Wishlist Wardrobe</h3>
+                        <p>Graduate HCI Project at RIT</p>
+                    </div>
+                    <div class="card-details">
+                        <h4>Project Overview</h4>
+                        <p>Wishlist Wardrobe is a centralized virtual wardrobe application designed to address the disjointed nature of online shopping. Currently, shoppers face cognitive overload managing multiple tabs, sizing inconsistencies across brands, and a lack of visualization tools. This project aimed to create a unified platform where users can collect items from any store, visualize outfits using AI/AR, and manage wardrobes for multiple individuals (e.g., family members or clients).</p>
+                        
+                        <h4>Research & Discovery</h4>
+                        <h5>Contextual Inquiry</h5>
+                        <p>Our team conducted field observations and contextual inquiries to understand user behaviors. We discovered that while online shopping is convenient, it often leads to decision fatigue. Shoppers frequently rely on "multi-tab shopping" to compare items and depend heavily on customer reviews to mitigate sizing risks. A key finding was that users often buy multiple sizes to guarantee fit, leading to increased return workloads.</p>
+                        
+                        <h4>Data Modeling</h4>
+                        <h5>Personas and Task Analysis</h5>
+                        <p>We developed personas based on our research, including "Hailey," a busy parent needing efficiency, and "Marcus," a fashion consultant needing to organize outfits for clients. We utilized Hierarchical Task Analysis (HTA) to map the complex workflow of shopping for multiple people, focusing on reducing memory reliance and preventing errors during the checkout process.</p>
+                
+                        <h4>Design Phase</h4>
+                        <h5>Prototyping & Architecture</h5>
+                        <p>We created a sitemap and low-fidelity prototypes to structure complex features like the "Shared Closet" and "Multi-Cart" systems. The High-Fidelity prototype refined these concepts, introducing a "Style Feed" for social discovery and a "Smart Search" filter. The design adhered to Hick’s Law to minimize choice paralysis and Jakob’s Law to ensure familiar navigation patterns.</p>
+                
+                        <h4>Evaluation & Iteration</h4>
+                        <h5>Usability Testing</h5>
+                        <p>We conducted usability testing with four participants. The pilot study revealed that while the concept of multiple carts was useful, it introduced friction. Additionally, participants reacted negatively to AI-generated imagery on the landing page. Based on this, we removed the AI imagery, redesigned the search filters to match standard e-commerce mental models, and improved the distinction between "Closets" and "Carts" to reduce cognitive load.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <img src="/Users/jesserichardson/Documents/Portfolio/images/corp_directory_home.jpg" 
+                            alt="Corporate Directory Home" 
+                            class="card-image">
+                    </div>
+
+                    <div class="card-content">
+                        <h3>Corporate Directory for Compact Screens</h3>
+                        <p>Graduate HCI Project at RIT</p>
+                    </div>
+
+                    <div class="card-details">
+
+                        <h4>Project Overview</h4>
+                        <p>
+                            This project explored the design of a corporate directory application for the Apple Watch.
+                            The goal was to support employee discovery within a large organization while respecting
+                            the constraints of an extremely compact screen and limited input methods.
+                        </p>
+
+                        <h4>Design Constraints</h4>
+                        <ul>
+                            <li>Small screen real estate with minimal tolerance for padding</li>
+                            <li>Shallow interaction depth preferred by watchOS guidelines</li>
+                            <li>Need to support organizations with 40,000+ employees</li>
+                            <li>Quick, glanceable interactions over prolonged use</li>
+                        </ul>
+
+                        <h4>Research & Guidelines</h4>
+                        <p>
+                            Apple’s watchOS Human Interface Guidelines informed core decisions around layout,
+                            hierarchy, and control density. Although Apple discourages deep hierarchies on watchOS,
+                            this constraint was intentionally challenged to explore edge cases for enterprise-scale data.
+                        </p>
+
+                        <h4>Initial Concept</h4>
+                        <p>
+                            Early sketches proposed a vertically organized directory with divisions displayed on
+                            the home screen, each paired with employee counts and a global search option.
+                            Selecting a division revealed teams, and eventually individual employee profiles.
+                        </p>
+                        <div class="photo-carousel">
+                            <div class="carousel-track">
+                                <div class="carousel-slide">
+                                    <img src="/Users/jesserichardson/Documents/Portfolio/images/corp_directory_sketch_home.jpg" alt="Home Sketch">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="/Users/jesserichardson/Documents/Portfolio/images/corp_directory_sketch_divison.jpg" alt="Divison View">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="/Users/jesserichardson/Documents/Portfolio/images/corp_directory_sketch_zoomedIN.jpg" alt="Zoomed In">
+                                </div>
+                            </div>
+
+                            <button class="carousel-btn prev">‹</button>
+                            <button class="carousel-btn next">›</button>
+
+                            <div class="carousel-dots"></div>
+                        </div>
+
+                        <h4>Refinement & Iteration</h4>
+                        <p>
+                            The design was refined in Figma using Apple’s watchOS UI Kit. Vertical text layouts were
+                            abandoned due to legibility issues, and divisions were reoriented horizontally for improved
+                            readability and alignment with platform conventions.
+                        </p>
+
+                        <h4>User Flows</h4>
+                        <h5>Search Flow</h5>
+                        <p>
+                            Users can search by division, level, or employee name using a dropdown selector and
+                            text input. Results dynamically update once valid input is entered.
+                        </p>
+                        <div class="photo-carousel">
+                            <div class="carousel-track">
+                                <div class="carousel-slide">
+                                    <img src="/Users/jesserichardson/Documents/Portfolio/images/select/Home.png" alt="Home">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="/Users/jesserichardson/Documents/Portfolio/images/select/Home_Select.png" alt="Home Select">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="/Users/jesserichardson/Documents/Portfolio/images/select/Divison_View.png" alt="Divison_View">
+                                </div>
+                                 <div class="carousel-slide">
+                                    <img src="/Users/jesserichardson/Documents/Portfolio/images/select/Divison_View_Select.png" alt="Divison_View_Select">
+                                </div>
+                                 <div class="carousel-slide">
+                                    <img src="/Users/jesserichardson/Documents/Portfolio/images/select/Employee_Focus.png" alt="Employee_Focus">
+                                </div>
+                            </div>
+
+                            <button class="carousel-btn prev">‹</button>
+                            <button class="carousel-btn next">›</button>
+
+                            <div class="carousel-dots"></div>
+                        </div>
+
+                        <h5>Select Flow</h5>
+                        <p>
+                            Users can browse divisions directly from the home screen, drill down into organizational
+                            levels, and view individual employees. Peer and report navigation supports lateral
+                            exploration without excessive backtracking.
+                        </p>
+                        <div class="photo-carousel">
+                            <div class="carousel-track">
+                                <div class="carousel-slide">
+                                    <img src="/Users/jesserichardson/Documents/Portfolio/images/search/Home.png" alt="Home">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="/Users/jesserichardson/Documents/Portfolio/images/search/Home.png" alt="Home Search">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="/Users/jesserichardson/Documents/Portfolio/images/search/Search.png" alt="Search">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="/Users/jesserichardson/Documents/Portfolio/images/search/Search_Input.png" alt="Search Input">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="/Users/jesserichardson/Documents/Portfolio/images/search/Employee_Focus.png" alt="Employee Focus">
+                                </div>
+                            </div>
+
+                            <button class="carousel-btn prev">‹</button>
+                            <button class="carousel-btn next">›</button>
+
+                            <div class="carousel-dots"></div>
+                        </div>
+
+                        <h4>Key Takeaways</h4>
+                        <ul>
+                            <li>Readable hierarchy is more critical than visual novelty on compact screens</li>
+                            <li>Persistent global navigation reduces cognitive load</li>
+                            <li>Enterprise data requires controlled violations of platform guidelines</li>
+                            <li>Glanceability and discoverability must be carefully balanced</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <img src="/Users/jesserichardson/Documents/Portfolio/images/nutrition.jpg" alt="Nutrition Challenge Logo" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3>Nutrition Challenge Dashboard</h3>
+                        <p>SoHookd.com</p>
+                    </div>
+                    <div class="card-details">
+                        <h4>The Research Phase</h4>
+                        <h5>Interviews and Benchmark Research</h5>
+                        <p>The research phase began with interviews to understand user needs, pain points, and existing behaviors related to nutrition challenges and wellness platforms. This was followed by benchmark research to analyze competitors and industry standards. Key insights gathered helped in defining the project's scope and design direction.</p>
+                        <h5>Sketches and Wireframes</h5>
+                        <p>Initial sketches and low-fidelity wireframes were created to visualize the user flow and layout. This iterative process focused on simplicity and clarity, addressing user needs identified in the research phase. The wireframes provided a foundational blueprint for the platform's interface, with a focus on intuitive navigation and accessible information.</p>
+                        <h5>User Testing and Key Takeaways</h5>
+                        <p>User testing was conducted to validate the design concepts. Feedback from users helped refine the platform's features and overall experience. Key takeaways from this phase included the importance of a simple, easy-to-understand challenge selection process and clear progress tracking.</p>
+                        <h4>The Design Phase</h4>
+                        <h5>Simple Select and Account Screens</h5>
+                        <p>The design phase brought the wireframes to life. A key feature, "Simple Select," was designed to streamline the challenge sign-up process. The account screen was also redesigned to provide users with a clear overview of their progress and easy access to their profile and wellness resources.</p>
+                        <img src="/Users/jesserichardson/Documents/Portfolio/images/sohookd.pdf" width="400" alt="Nutrition Challenge Dashboard with Simple Select">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <img src="/Users/jesserichardson/Documents/Portfolio/images/airplane.jpg" alt="Airline Website Logo" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3>Airline Website Case Study</h3>
+                        <p>UX Design Institute</p>
+                    </div>
+                    <div class="card-details">
+                        <h4>Project Context</h4>
+                        <p>This project was completed for the purposes of learning, understanding and using the design process. The main goal was to take research findings, analyze and conceptualize them, and design an airline website that created a better experience for users.</p>
+                        <h4>Research</h4>
+                        <h5>User Interview and Testing</h5>
+                        <p>I completed 3 interviews directly followed by a usability test of 2 competing airline websites. Findings included: Users use aggregator sites for comparison and visit airline sites when ready to book; Brand loyalty is prevalent; A clear flow is important.</p>
+                        <h4>Analysis</h4>
+                        <h5>Affinity Diagram & Journey Map</h5>
+                        <p>I used affinity diagraming to break down my research findings into understandable groupings. The Customer Journey Map added structure and emotion tracking. Users typically have a better experience during data-entry and a less than optimal experience when interpreting large amounts of information.</p>
+                        <div class="photo-carousel">
+                            <div class="carousel-track">
+                                <div class="carousel-slide">
+                                    <img src="/Users/jesserichardson/Documents/Portfolio/images/airline/Sketch.pdf" alt="Sketch">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="/Users/jesserichardson/Documents/Portfolio/images/airline/Flow_Diagram.pdf" alt="Flow Diagram">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="/Users/jesserichardson/Documents/Portfolio/images/airline/Customer_Journey_Map.pdf" alt="Customer Journey Map">
+                                </div>
+                            </div>
+
+                            <button class="carousel-btn prev">‹</button>
+                            <button class="carousel-btn next">›</button>
+
+                            <div class="carousel-dots"></div>
+                        </div>
+                        <h4>Design</h4>
+                        <h5>Sketches & Prototypes</h5>
+                        <p>Sketching gave me a visual on the user's experience, focusing on clear presentation and flow. I focused on "Less clicks = Better," "Avoid Redundancies," "Clarity is key," and "Keep fare-levels simple". I created a medium-fidelity prototype using Figma and Invision.</p>
+                                                <div class="photo-carousel">
+                            <div class="carousel-track">
+                                <div class="carousel-slide">
+                                    <img src="/Users/jesserichardson/Documents/Portfolio/images/airline/Wireframes/WF1.pdf" alt="Wire Frame 1">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="/Users/jesserichardson/Documents/Portfolio/images/airline/Wireframes/WF2.pdf" alt="Wire Frame 2">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="/Users/jesserichardson/Documents/Portfolio/images/airline/Wireframes/WF3.pdf" alt="Wire Frame 3">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="/Users/jesserichardson/Documents/Portfolio/images/airline/Wireframes/WF4.pdf" alt="Wire Frame 4">
+                                </div>
+                               <div class="carousel-slide">
+                                    <img src="/Users/jesserichardson/Documents/Portfolio/images/airline/Wireframes/WF5.pdf" alt="Wire Frame 5">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="/Users/jesserichardson/Documents/Portfolio/images/airline/Wireframes/WF6.pdf" alt="Wire Frame 6">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="/Users/jesserichardson/Documents/Portfolio/images/airline/Wireframes/WF7.pdf" alt="Wire Frame 7">
+                                </div>
+                            </div>
+
+                            <button class="carousel-btn prev">‹</button>
+                            <button class="carousel-btn next">›</button>
+
+                            <div class="carousel-dots"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <img src="/Users/jesserichardson/Documents/Portfolio/images/iosClock.jpeg" alt="iOS Clock App Logo" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3>iOS Clock Application</h3>
+                        <p>Redesign Experiment</p>
+                    </div>
+                    <div class="card-details">
+                        <h4>The Problem</h4>
+                        <p>My mother noticed how many nonactive alarms I had in my alarm list. She told me that when she turns off an alarm, it deletes itself. Through an impromptu usability test, I learned that the iOS Switch control used to turn alarms on/off was misleading her, as the gesture to swipe like a switch is the gesture used to delete an alarm. Problem: iOS Switch control offers incorrect affordances.</p>
+                        <h4>Research</h4>
+                        <p>Interviews and testing were done informally and in-person. The goal was to affirm or dispute my initial theory that the Switch control offered the wrong affordances. 4 users completed the test. Findings: 3 out of 4 users deleted the alarm by swiping when they were attempting to turn off an alarm.</p>
+                        <h4>Design</h4>
+                        <p>The goal was to create a dead-simple redesign of the iOS Switch control. The outcome was a control that had an unmistakable function. Using Figma, I created a medium-fidelity prototype. 2 users were tested. Boxes with rounded corners were added to each button. This addition was retested and users had no trouble interpreting the control.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="notable-experiences" class="section">
+        <div class="container">
+            <div class="title-wrapper"><h2 class="section-title">Notable Experiences</h2></div>
+            
+            <h3 class="section-subtitle">Experience</h3>
+            <div class="card-grid">
+                
+                <div class="card">
+                    <div class="card-header">
+                        <img src="https://placehold.co/100x100/0081FB/ffffff?text=Meta" alt="Meta Logo" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3>Project Manager</h3>
+                        <p>Oct 2024 to Present</p>
+                    </div>
+                    <div class="card-details">
+                        <ul>
+                            <li>Led multiple full project lifecycles for human-centered data collection efforts, from planning to delivery.</li>
+                            <li>Developed project strategies, ensuring alignment with organizational objectives and the needs of human subjects.</li>
+                            <li>Cultivated strong relationships with stakeholders and managed project resources.</li>
+                            <li>Utilized project management methodologies to ensure projects were completed on time and within scope.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <img src="https://placehold.co/100x100/0081FB/ffffff?text=Meta" alt="Meta Logo" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3>Project Coordinator</h3>
+                        <p>Aug 2024 to Oct 2024</p>
+                    </div>
+                    <div class="card-details">
+                        <ul>
+                            <li>Supported project management team in creating and maintaining project plans and timelines.</li>
+                            <li>Managed project documentation and coordinated project meetings to facilitate team communication.</li>
+                            <li>Facilitated communication between cross-functional teams and internal data partners.</li>
+                            <li>Tracked project progress and provided status updates to management and internal data customers.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <img src="https://placehold.co/100x100/0081FB/ffffff?text=Meta" alt="Meta Logo" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3>Research Assistant</h3>
+                        <p>Apr 2022 to Aug 2024</p>
+                    </div>
+                    <div class="card-details">
+                        <ul>
+                            <li>Contributed significantly to scaling product offerings by overseeing projects within an emerging category.</li>
+                            <li>Managed and optimized digital asset libraries, ensuring smooth operations across multiple projects.</li>
+                            <li>Orchestrated technical research inquiries, by aligning with stakeholder goals to achieve project milestones.</li>
+                            <li>Authored comprehensive technical documentation, including process maps using Lucid Chart and standard operating procedures.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <img src="https://placehold.co/100x100/ffffff/000000?text=WEVO" alt="WEVO Logo" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3>Digital Analyst</h3>
+                        <p>Jan 2022 to Apr 2022</p>
+                    </div>
+                    <div class="card-details">
+                        <ul>
+                            <li>Analyzed user-experience data and presented insights through data visualization, aiding client decision-making.</li>
+                            <li>Developed prototypes to test new concepts and compiled findings into actionable reports.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <img src="https://placehold.co/100x100/ffffff/000000?text=SoHooked" alt="SoHookd Logo" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3>UX Design Intern</h3>
+                        <p>Sep 2021 to Dec 2021</p>
+                    </div>
+                    <div class="card-details">
+                        <ul>
+                            <li>Led UX design for a health service platform, incorporating user research and feedback to refine product offerings.</li>
+                            <li>Conducted interviews and A/B tests to inform product requirements and enhance user experience.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <img src="https://placehold.co/100x100/a02021/000000?text=Redfin" alt="Redfin Logo" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3>Client Strategy Lead</h3>
+                        <p>Aug 2020 to Apr 2022</p>
+                    </div>
+                    <div class="card-details">
+                        <ul>
+                            <li>Managed 35+ real estate deals, generating over $10M in sales, and improved lead conversion by 20%.</li>
+                            <li>Ensured high client satisfaction by deploying a client-centric strategic management approach, maintaining a 97% satisfaction rate.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="section-subtitle">Education</h3>
+            <div class="card-grid">
+                
+                <div class="card">
+                    <div class="card-header">
+                        <img src="https://placehold.co/100x100/F76902/ffffff?text=RIT" alt="RIT Logo" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3>Master’s of Science in HCI</h3>
+                        <p>Rochester Institute of Technology · Expected Spring 2026</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <img src="https://placehold.co/100x100/C959A3/ffffff?text=UXI" alt="UX Institute Logo" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3>Professional Diploma in UX Design</h3>
+                        <p>Glasgow Caledonian University, UX Institute · Mar 2021 to Jun 2021</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <img src="https://placehold.co/100x100/14234b/a6192e?text=RMU" alt="Robert Morris University Logo" class="card-image">
+                    </div>
+                    <div class="card-content">
+                        <h3>BS in Business Administration</h3>
+                        <p>Robert Morris University · Aug 2013 to May 2017</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="contact" class="section">
+        <div class="container" style="text-align: center;">
+            <div class="title-wrapper"><h2 class="section-title">Contact</h2></div>
+            <div style="font-size: 1.5rem; line-height: 2; font-weight: 700;">
+                <p>Email: <a href="mailto:jrich2095@gmail.com" style="text-decoration: none; border: 2px solid #000; box-shadow: 4px 4px 0 #000;">jrich2095@gmail.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/jesserichardson1/" target="_blank" style="text-decoration: none; border: 2px solid #000; box-shadow: 4px 4px 0 #000;">jesserichardson1</a></p>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <footer>
+        <p>&copy; 2025 Jesse Richardson. All Rights Reserved.</p>
+    </footer>
+
+   <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            /* ============================
+            CARD EXPANSION
+            ============================ */
+
+            const cards = document.querySelectorAll(".card");
+
+            cards.forEach(card => {
+                card.addEventListener("click", (e) => {
+                    if (e.target.closest(".carousel-btn")) return;
+
+                    const isActive = card.classList.contains("active");
+                    cards.forEach(c => c.classList.remove("active"));
+                    if (!isActive) card.classList.add("active");
+                });
+            });
+
+            /* ============================
+            CAROUSEL (CENTERED MODEL)
+            ============================ */
+
+            document.querySelectorAll(".photo-carousel").forEach(carousel => {
+                const track = carousel.querySelector(".carousel-track");
+                const slides = Array.from(carousel.querySelectorAll(".carousel-slide"));
+                const prevBtn = carousel.querySelector(".carousel-btn.prev");
+                const nextBtn = carousel.querySelector(".carousel-btn.next");
+                const dotsContainer = carousel.querySelector(".carousel-dots");
+
+                let index = 0;
+
+                const getVisible = () => window.innerWidth <= 768 ? 1 : 3;
+
+                function clampIndex() {
+                    index = Math.max(0, Math.min(index, slides.length - 1));
+                }
+
+                function update() {
+                    const visible = getVisible();
+                    clampIndex();
+
+                    const offset = (index - Math.floor(visible / 2)) * (100 / visible);
+                    track.style.transform = `translateX(-${offset}%)`;
+
+                    Array.from(dotsContainer.children).forEach((dot, i) => {
+                        dot.classList.toggle("active", i === index);
+                    });
+                }
+
+                function buildDots() {
+                    dotsContainer.innerHTML = "";
+                    slides.forEach((_, i) => {
+                        const dot = document.createElement("div");
+                        dot.className = "carousel-dot";
+                        dot.addEventListener("click", () => {
+                            index = i;
+                            update();
+                        });
+                        dotsContainer.appendChild(dot);
+                    });
+                }
+
+                prevBtn.addEventListener("click", () => {
+                    index--;
+                    update();
+                });
+
+                nextBtn.addEventListener("click", () => {
+                    index++;
+                    update();
+                });
+
+                window.addEventListener("resize", update);
+
+                buildDots();
+                update();
+            });
+        });
+            window.addEventListener("load", () => {
+            document.body.setAttribute("tabindex", "-1");
+            document.body.focus({ preventScroll: true });
+            window.scrollTo(0, 0);
+        });
+        </script>
+
+
+
+
+</body>
+</html>
