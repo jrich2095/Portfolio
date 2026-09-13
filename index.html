@@ -142,17 +142,28 @@
     /* --- Hero Section --- */
     .hero {
         text-align: center;
-        padding: 10px 0 40px;
-        background-color: var(--bg-color);
+        padding: 6px 0 22px;
+        background-color: transparent;
         border-bottom: var(--border-width) solid var(--border-color);
     }
 
+    .hero-layout {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-left {
+        width: 100%;
+        text-align: center;
+    }
+
     .hero-photo {
-        width: 140px;
-        height: 140px;
+        width: 115px;
+        height: 115px;
         border-radius: 50%;
         object-fit: cover;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         border: 4px solid var(--border-color);
         background-color: #fff;
         box-shadow: var(--hard-shadow);
@@ -164,65 +175,32 @@
     }
 
     .hero h1 {
-        font-size: clamp(2.2rem, 6vw, 4rem);
+        font-size: clamp(2rem, 5vw, 3.5rem);
         margin: 0;
         font-weight: 900;
         letter-spacing: -1px;
-        line-height: 1.05;
+        line-height: 1;
     }
 
     .hero p {
-        font-size: clamp(1rem, 2.5vw, 1.3rem);
+        font-size: clamp(0.95rem, 2.2vw, 1.2rem);
         font-weight: 700;
         color: var(--text-main);
-        margin-top: 10px;
+        margin: 6px 0 0;
         background-color: var(--accent-green);
         display: inline-block;
-        padding: 5px 10px;
+        padding: 3px 8px;
         border: 2px solid #000;
-    }
-
-    .hero-layout {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-    }
-
-    .hero-left {
-        flex: 1;
-        text-align: left;
-    }
-
-    .hero-right {
-        flex: 1;
-    }
-
-    .hero-left h1 {
-        margin-bottom: 10px;
-    }
-
-    .hero-left p {
-        margin-top: 0;
     }
 
     @media (max-width: 768px) {
         .hero {
-            padding: 20px 0 30px;
+            padding: 12px 0 20px;
         }
-        
+
         .hero-photo {
-            width: 110px;
-            height: 110px;
-        }
-
-        .hero-layout {
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .hero-left {
-            text-align: center;
+            width: 100px;
+            height: 100px;
         }
     }
 
@@ -398,26 +376,13 @@
     
 <header class="hero">
     <div class="container hero-layout">
-
-        <!-- LEFT COLUMN -->
         <div class="hero-left">
             <img src="images/headshot_no_bg.png" 
                  alt="Jesse Richardson profile photo" 
                  class="hero-photo">
             <h1>JESSE<br>RICHARDSON</h1>
-            <p>UX Research & Design</p>
+            <p>User <s>focused</s> obsessed</p>
         </div>
-
-        <!-- RIGHT COLUMN -->
-        <div class="hero-right">
-            <div class="about-section">
-                <h3>My Motivation</h3>
-                <p>
-                    Throughout my career, I have consistently demonstrated a user-centric approach, focusing on identifying business needs and translating them into actionable strategies. In my current role at Meta, I play a key role in scaling product offerings by overseeing research projects within an emerging category. I am confident that I can bring the same level of dedication and expertise to any challenge within a targeted role.
-                </p>
-            </div>
-        </div>
-
     </div>
 </header>
 
